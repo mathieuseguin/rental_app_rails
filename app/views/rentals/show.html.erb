@@ -36,8 +36,23 @@
 </p>
 
 <p>
-  <strong>Reviews count:</strong>
-  <%= @rental.reviews.count %>
+  <strong>Reviews (<%= @rental.reviews.count %>):</strong>
+
+  <ul>
+    <% @rental.reviews.each do |review| %>
+      <%= content_tag :li, "#{review.content} - #{review.user.full_name}" %>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Availability (<%= @rental.reviews.count %>):</strong>
+
+  <ul>
+    <% @rental.availabilities.each do |availability| %>
+      <%= content_tag :li, availability.day %>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_user_rental_path(@rental.user, @rental) %> |

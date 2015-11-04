@@ -62,7 +62,13 @@ class CitiesController < ApplicationController
   end
 
   def rentals
-    @rentals = @city.rentals
+    if params[:start_date] && params[:end_date]
+      @rentals = Rental
+                  .all_by_availability(params[:start_date], params[:end_date])
+                  .where(city_id: @city.id)
+    else
+      @rentals = @city.rentals
+    end
 
     respond_to do |format|
       format.html { render 'rentals/index' }
