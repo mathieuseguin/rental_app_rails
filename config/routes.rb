@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :cities do
+    member do
+      get 'rentals'
+    end
+  end
+
   resources :kinds
 
   resources :users do

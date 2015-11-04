@@ -32,7 +32,9 @@
   </tbody>
 </table>
 
-<br>
+<% if @user %>
+  <br>
 
-<%= link_to 'New Rental', new_user_rental_path %> |
-<%= link_to 'Back to user', user_path(@user) %>
+  <%= link_to 'New Rental', new_user_rental_path %> |
+  <%= link_to 'Back to user', user_path(@user) %>
+<% end %>
