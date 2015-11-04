@@ -7,11 +7,44 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
-/tmp
+db/neo4j/*
+/.bundle
+db/*.sqlite3
+db/*.sqlite3-journal
+/tmp/*
+.rspec
+.sass-cache
+/config/config.yml
+/config/database.yml
+/coverage.data
+/coverage/
+/db/*.javadb/
+/db/*.sqlite3
+/doc/api/
+/doc/app/
+/doc/features.html
+/doc/specs.html
+/public/cache
+/public/stylesheets/compiled
+/public/system/*
+/spec/tmp/*
+/cache
+/capybara*
+/capybara-*.html
+/gems
+/spec/requests
+/spec/routing
+/spec/views
+/specifications
+rerun.txt
+pickle-email-*.html
+screenshot.png
+**.orig
+.DS_Store
+/nbproject/
+.idea
+/*.tmproj
+**.swp
