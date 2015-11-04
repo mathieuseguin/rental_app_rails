@@ -17,7 +17,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @rental.user.first_name %> <%= @rental.user.last_name %>
+  <%= @rental.user.full_name %>
 </p>
 
 <p>
@@ -30,5 +30,11 @@
   <%= @rental.instant_book %>
 </p>
 
+<p>
+  <strong>Reviews count:</strong>
+  <%= @rental.reviews.count %>
+</p>
+
 <%= link_to 'Edit', edit_user_rental_path(@rental.user, @rental) %> |
-<%= link_to 'Back', user_rentals_path %>
+<%= link_to 'Back', user_rentals_path %> |
+<%= link_to 'Add review', new_user_rental_review_path(@rental.user, @rental) %>

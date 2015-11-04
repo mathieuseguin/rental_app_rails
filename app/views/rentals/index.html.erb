@@ -21,7 +21,7 @@
         <td><%= rental.name %></td>
         <td><%= rental.kind.name %></td>
         <td><%= rental.score %></td>
-        <td><%= "#{rental.user.first_name} #{rental.user.last_name}" %></td>
+        <td><%= rental.user.full_name %></td>
         <td><%= rental.price %></td>
         <td><%= rental.instant_book %></td>
         <td><%= link_to 'Show', user_rental_path(rental.user, rental) %></td>
@@ -34,4 +34,5 @@
 
 <br>
 
-<%= link_to 'New Rental', new_user_rental_path %>
+<%= link_to 'New Rental', new_user_rental_path %> |
+<%= link_to 'Back to user', user_path(@user) %>

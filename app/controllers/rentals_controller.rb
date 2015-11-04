@@ -4,7 +4,8 @@ class RentalsController < ApplicationController
   # GET /rentals
   # GET /rentals.json
   def index
-    @rentals = Rental.all
+    @user = User.find(params[:user_id])
+    @rentals = @user.rentals.all
   end
 
   # GET /rentals/1
