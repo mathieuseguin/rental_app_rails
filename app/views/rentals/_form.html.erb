@@ -24,6 +24,10 @@
     <%= f.collection_select(:kind_id, Kind.all, :id, :name) %>
   </div>
   <div class="field">
+    <%= f.label :nb_guests %><br>
+    <%= f.number_field :nb_guests %>
+  </div>
+  <div class="field">
     <%= f.label :score %><br>
     <%= f.text_field :score %>
   </div>

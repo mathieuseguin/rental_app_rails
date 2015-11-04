@@ -70,6 +70,8 @@ class CitiesController < ApplicationController
       @rentals = @city.rentals
     end
 
+    @rentals = @rentals.where('nb_guests >= ?', params[:nb_guests])
+
     respond_to do |format|
       format.html { render 'rentals/index' }
       format.json { render 'rentals/index' }
