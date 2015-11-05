@@ -2,8 +2,8 @@ class Rental < ActiveRecord::Base
   belongs_to :city
   belongs_to :kind
   belongs_to :user
-  has_many :reviews
-  has_many :availabilities
+  has_many :reviews, dependent: :destroy
+  has_many :availabilities, dependent: :destroy
   accepts_nested_attributes_for :availabilities, allow_destroy: true
 
   def self.all_by_availability(start_date, end_date)
