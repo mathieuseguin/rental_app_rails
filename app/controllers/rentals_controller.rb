@@ -31,7 +31,6 @@ class RentalsController < ApplicationController
     respond_to do |format|
       if @rental.save
         if params[:images]
-          @rental.pictures.destroy_all
           params[:images].each do |image|
             @rental.pictures.create(file: image)
           end
@@ -51,6 +50,13 @@ class RentalsController < ApplicationController
   def update
     respond_to do |format|
       if @rental.update(rental_params)
+        if params[:images]
+          @rental.pictures.destroy_all
+          params[:images].each do |image|
+            @rental.pictures.create(file: image)
+          end
+        end
+
         format.html { redirect_to [@rental.user, @rental], notice: 'Rental was successfully updated.' }
         format.json { render :show, status: :ok, location: [@rental.user, @rental] }
       else

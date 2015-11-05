@@ -46,7 +46,11 @@
 
     <ul>
       <% @rental.reviews.each do |review| %>
-        <%= content_tag :li, "#{review.content} - #{review.user.full_name}" %>
+        <%= content_tag :li do %>
+          <%= image_tag review.user.avatar(:thumb), size: '30x30' %>
+          <%= review.user.full_name %> <br />
+          <%= review.content %>
+        <% end %>
       <% end %>
     </ul>
   </p>
