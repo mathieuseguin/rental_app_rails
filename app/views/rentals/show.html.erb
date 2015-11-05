@@ -1,64 +1,76 @@
-<p id="notice"><%= notice %></p>
+<div class="rental">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @rental.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @rental.name %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @rental.city.name %>
-</p>
+  <p>
+    <strong>City:</strong>
+    <%= @rental.city.name %>
+  </p>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @rental.kind.name %>
-</p>
+  <p>
+    <strong>Kind:</strong>
+    <%= @rental.kind.name %>
+  </p>
 
-<p>
-  <strong>Nb Guests:</strong>
-  <%= @rental.nb_guests %>
-</p>
+  <p>
+    <strong>Nb Guests:</strong>
+    <%= @rental.nb_guests %>
+  </p>
 
-<p>
-  <strong>Score:</strong>
-  <%= @rental.score %>
-</p>
+  <p>
+    <strong>Score:</strong>
+    <%= @rental.score %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @rental.user.full_name %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @rental.user.full_name %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @rental.price %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @rental.price %>
+  </p>
 
-<p>
-  <strong>Instant book:</strong>
-  <%= @rental.instant_book %>
-</p>
+  <p>
+    <strong>Instant book:</strong>
+    <%= @rental.instant_book %>
+  </p>
 
-<p>
-  <strong>Reviews (<%= @rental.reviews.count %>):</strong>
+  <p>
+    <strong>Reviews (<%= @rental.reviews.count %>):</strong>
 
-  <ul>
-    <% @rental.reviews.each do |review| %>
-      <%= content_tag :li, "#{review.content} - #{review.user.full_name}" %>
-    <% end %>
-  </ul>
-</p>
+    <ul>
+      <% @rental.reviews.each do |review| %>
+        <%= content_tag :li, "#{review.content} - #{review.user.full_name}" %>
+      <% end %>
+    </ul>
+  </p>
 
-<p>
-  <strong>Availability (<%= @rental.reviews.count %>):</strong>
+  <div class="pictures">
+    <strong>Pictures (<%= @rental.pictures.count %>):</strong>
 
-  <ul>
-    <% @rental.availabilities.each do |availability| %>
-      <%= content_tag :li, availability.day %>
-    <% end %>
-  </ul>
-</p>
+    <ul>
+      <% @rental.pictures.each do |picture| %>
+        <%= content_tag :li, image_tag(picture.file(:thumb)) %>
+      <% end %>
+    </ul>
+  </div>
+
+  <p>
+    <strong>Availability (<%= @rental.reviews.count %>):</strong>
+
+    <ul>
+      <% @rental.availabilities.each do |availability| %>
+        <%= content_tag :li, availability.day %>
+      <% end %>
+    </ul>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_user_rental_path(@rental.user, @rental) %> |
 <%= link_to 'Back', user_rentals_path %> |

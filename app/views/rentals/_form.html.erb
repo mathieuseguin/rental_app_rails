@@ -1,4 +1,4 @@
-<%= form_for [@rental.user, @rental] do |f| %>
+<%= form_for [@rental.user, @rental], html: { multipart: true } do |f| %>
   <%= f.hidden_field :user_id, value: @rental.user_id %>
 
   <% if @rental.errors.any? %>
@@ -39,7 +39,9 @@
     <%= f.label :instant_book %><br>
     <%= f.check_box :instant_book %>
   </div>
-
+  <div class="field">
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
+  </div>
   <div class="field">
     <%= f.fields_for :availabilities do |builder| %>
       <%= render 'availability_fields', f: builder %>

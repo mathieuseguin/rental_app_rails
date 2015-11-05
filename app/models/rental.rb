@@ -4,6 +4,7 @@ class Rental < ActiveRecord::Base
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :availabilities, dependent: :destroy
+  has_many :pictures, class_name: 'RentalPicture', dependent: :destroy
   accepts_nested_attributes_for :availabilities, allow_destroy: true
 
   def self.all_by_availability(start_date, end_date)

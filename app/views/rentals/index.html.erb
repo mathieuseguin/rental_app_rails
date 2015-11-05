@@ -2,7 +2,7 @@
 
 <h1>Listing Rentals</h1>
 
-<table>
+<table cellpadding="4">
   <thead>
     <tr>
       <th>Name</th>
@@ -10,7 +10,8 @@
       <th>Score</th>
       <th>User</th>
       <th>Price</th>
-      <th>Instant book</th>
+      <th>Instant<br/> book</th>
+      <th>Reviews</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,10 +21,11 @@
       <tr>
         <td><%= rental.name %></td>
         <td><%= rental.kind.name %></td>
-        <td><%= rental.score %></td>
+        <td style="text-align: center"><%= rental.score || 0 %>/5</td>
         <td><%= rental.user.full_name %></td>
-        <td><%= rental.price %></td>
-        <td><%= rental.instant_book %></td>
+        <td style="text-align: center">$<%= rental.price || 0.0 %></td>
+        <td style="text-align: center"><%= rental.instant_book %></td>
+        <td style="text-align: center"><%= link_to rental.reviews.count, user_rental_reviews_path(rental.user, rental) %></td>
         <td><%= link_to 'Show', user_rental_path(rental.user, rental) %></td>
         <td><%= link_to 'Edit', edit_user_rental_path(rental.user, rental) %></td>
         <td><%= link_to 'Destroy', user_rental_path(rental.user, rental), method: :delete, data: { confirm: 'Are you sure?' } %></td>

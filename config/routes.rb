@@ -13,4 +13,6 @@ Rails.application.routes.draw do
       resources :reviews
     end
   end
+
+  root to: 'users#index'
 end

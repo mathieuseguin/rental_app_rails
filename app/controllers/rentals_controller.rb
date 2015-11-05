@@ -30,6 +30,13 @@ class RentalsController < ApplicationController
 
     respond_to do |format|
       if @rental.save
+        if params[:images]
+          @rental.pictures.destroy_all
+          params[:images].each do |image|
+            @rental.pictures.create(file: image)
+          end
+        end
+
         format.html { redirect_to [@rental.user, @rental], notice: 'Rental was successfully created.' }
         format.json { render :show, status: :created, location: [@rental.user, @rental] }
       else
