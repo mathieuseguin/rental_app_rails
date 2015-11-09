@@ -1,5 +1,6 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy, :rentals]
+  before_action :set_access_control_headers, only: :index
 
   # GET /cities
   # GET /cities.json
