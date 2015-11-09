@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -24,9 +25,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'friendly_id', '~> 5.1.0'
-gem 'paperclip', '~> 4.3'
+gem 'paperclip'
 gem 'rails_12factor', group: :production
-gem 'puma'
+gem 'puma', group: :production
 gem 'aws-sdk'
 
 # Use ActiveModel has_secure_password
