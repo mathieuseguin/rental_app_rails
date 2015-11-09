@@ -28,7 +28,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip'
 gem 'rails_12factor', group: :production
 gem 'puma', group: :production
-gem 'aws-sdk'
+gem 'fog'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
