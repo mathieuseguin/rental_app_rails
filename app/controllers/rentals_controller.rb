@@ -84,6 +84,7 @@ class RentalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rental_params
-      params.require(:rental).permit(:name, :city_id, :kind_id, :nb_guests, :score, :user_id, :price, :instant_book, availabilities_attributes: [:id, :day, :_destroy])
+      params.require(:rental).permit(:name, :city_id, :kind_id, :nb_guests, :score, :user_id, :price, :instant_book,
+                                     :lat, :lng, availabilities_attributes: [:id, :day, :_destroy])
     end
 end

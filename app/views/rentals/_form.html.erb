@@ -40,6 +40,14 @@
     <%= f.check_box :instant_book %>
   </div>
   <div class="field">
+    <%= f.label :lat, "Latitude" %><br>
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :lng, "Longitude" %><br>
+    <%= f.text_field :lng %>
+  </div>
+  <div class="field">
     <%= file_field_tag "images[]", type: :file, multiple: true %>
   </div>
   <div class="field">

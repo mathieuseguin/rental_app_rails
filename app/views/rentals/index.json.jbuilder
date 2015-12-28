@@ -1,5 +1,5 @@
 json.array!(@rentals) do |rental|
-  json.extract! rental, :id, :name, :score, :user_id, :price, :instant_book
+  json.extract! rental, :id, :name, :score, :user_id, :price, :instant_book, :lat, :lng
   json.url user_rental_url(rental.user, rental, format: :json)
 
   json.kind rental.kind.name
